@@ -5,7 +5,7 @@ const mongoose=require('mongoose')
 const Product=require('./models/product')
 const print=console.log
 app.set('view engine','ejs')
-app.set('views',path.join(__dirname,'view'))
+app.set('views',path.join(__dirname,'views'))
 
 async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/shopApp');
@@ -15,6 +15,24 @@ async function main() {
   }).
   catch(err => console.log(err));
   
+
+app.get('/products',async (req,res)=>{
+    const products=await Product.find({})
+    print(products)
+
+    res.render('products.ejs',{products})
+
+})
+
+app.get('/products/:id',async (req,res)=>{
+    const id=req.params.id
+    
+    const product=await Product.find({_id:id})
+    print(product)
+
+    res.send(`the product with id: ${id} is ${product}`)
+
+})
 
 app.listen(3000,()=>{
     print('server up and running')
