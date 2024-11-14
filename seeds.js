@@ -34,5 +34,15 @@ Product.insertMany([
         price:3,
         category:'vegetable'
     },
+    {
+        name:'cabbage',
+        price:7,
+        category:'vegetable'
+    },
+    {
+        name:'whole milk',
+        price:10,
+        category:'dairy'
+    },
 
 ])
