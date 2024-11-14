@@ -22,6 +22,8 @@
         <a href="/products">
             Back to product list
         </a>
-    
+        <form method="POST" action="/products/<%=product.id%>/?_method=DELETE" >
+            <button type="submit">Delete Productt</button>
+        </form>
 </body>
 </html>
