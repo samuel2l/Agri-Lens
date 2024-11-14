@@ -28,9 +28,11 @@ app.get('/products/:id',async (req,res)=>{
     const id=req.params.id
     
     const product=await Product.find({_id:id})
-    print(product)
+    //you can also use findById to make search simpler
+    
+    
 
-    res.send(`the product with id: ${id} is ${product}`)
+    res.render('product_details.ejs',{product:product[0]})
 
 })
 
