@@ -2,6 +2,7 @@ const express=require('express')
 const path=require('path')
 const app=express()
 const mongoose=require('mongoose')
+const product=require('./models/product')
 const print=console.log
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'view'))
